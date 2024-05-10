@@ -1,0 +1,28 @@
+.contenedorDinamico{
+    margin-top: 110px;
+    display: flex;
+    background-color:  var(--DarkGrey) ;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 6px;
+    padding: 10px 5px;
+  }
+  .contenedorDinamico2{
+    margin-top: 110px;
+    width: 200px;
+    display: flex;
+    background-color:  var(--DarkGrey) ;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 6px;
+    padding: 10px 5px;
+  }
+
+  @media (min-width: 376px) {
+    .contenedorDinamico{
+         margin-top: 90px;
+         scale: 1.2;    
+    }
+   }
