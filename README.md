@@ -1,8 +1,9 @@
 # 🚀 Hola este es el repo del proyecto!
 
+Trate que se vea como esta version, dado que en el repositorio original solo colocaron la version con colores oscuros.
 [![image](https://user-images.githubusercontent.com/1212194/54691119-c3172500-4b33-11e9-8f2f-1a5e1610dbc5.png)](https://flatlogic.com/admin-dashboards/light-blue-vue/demo)
 
-**Originally a premium product priced at $69+, made available for free in January 2025!** 🎉
+Si tienes algunas ideas o sugerencias para mejorar la paleta de colores no dudes en decirlo :3
 
 
 ## 🚀 OK, para la instalacion....
@@ -45,13 +46,15 @@
 
 ---
 
-## 👨‍💻 How to Contribute
+## 👨‍💻 Disculpas
 - **Me tarde un tanto cambiando los colores ⭐** - Pronto añadire otra vez la funcionalidad de cambiar entre claro y oscuro.
 ---
 
 
 ## 📜 Licencia de los creadores
-This template is free to use. Modify it, break it, make it your own. Just don’t try to sell it back to us. 😎
+Literalmente dicen lo siguiente:
+"This template is free to use. Modify it, break it, make it your own. Just don’t try to sell it back to us. 😎"
+Asi que no hay problema :v
 
 ---
 
