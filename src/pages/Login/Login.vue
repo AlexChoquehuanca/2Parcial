@@ -1,17 +1,17 @@
 <template>
   <div class="auth-page light-blue theme--dark">
     <b-container>
-      <Widget class="widget-auth mx-auto" title="<h3 class='mt-0'>Login to your Web App</h3>" customHeader>
+      <Widget class="widget-auth mx-auto" title="<h3 class='mt-0'>Inicia sesion para entrar al sistema</h3>" customHeader>
         <p class="widget-auth-info">
-          Use your email to sign in.
+          Use su direccion de correo para iniciar sesion.
         </p>
-        <b-alert class="alert-sm text-center mt-2 widget-middle-overflow rounded-0" variant="default" show>
+        <!-- <b-alert class="alert-sm text-center mt-2 widget-middle-overflow rounded-0" variant="default" show>
           This is a real app with Node.js backend - use
           <br/>
           <span class="font-weight-bold">"admin@flatlogic.com / password"</span>
           <br/>
           to login!
-        </b-alert>
+        </b-alert> -->
         <form class="mt" @submit.prevent="login">
           <b-alert class="alert-sm" variant="danger" :show="!!errorMessage">
             {{errorMessage}}
@@ -43,13 +43,13 @@
               <span class="auth-btn-circle">
                 <i class="la la-caret-right"></i>
               </span>
-              {{this.isFetching ? 'Loading...' : 'Login'}}
+              {{this.isFetching ? 'Cargando...' : 'Login'}}
             </b-button>
             <p class="widget-auth-info mt-4">
-              Don't have an account? Sign up now!
+              No tienes una cuenta, Registrese ahora!
             </p>
-            <router-link class="d-block text-center mb-4" to="register">Create an Account</router-link>
-            <div class="social-buttons">
+            <router-link class="d-block text-center mb-4" to="register">Crear cuenta</router-link>
+             <!--<div class="social-buttons">
               <b-button @click="this.googleLogin" variant="primary" class="social-button">
                 <i class="social-icon social-google"></i>
                 <p class="social-text">GOOGLE</p>
@@ -58,13 +58,13 @@
                 <i class="social-icon social-microsoft"></i>
                 <p class="social-text">MICROSOFT</p>
               </b-button>
-            </div>
+            </div> -->
           </div>
         </form>
       </Widget>
     </b-container>
     <footer class="auth-footer">
-      Light Blue Vue Admin Dashboard Template - Made by <a href="https://flatlogic.com" target="_blank">Flatlogic</a>
+      Sistema realizado por pasantes usando: <a href="https://flatlogic.com" target="_blank">Flatlogic</a>
     </footer>
   </div>
 </template>

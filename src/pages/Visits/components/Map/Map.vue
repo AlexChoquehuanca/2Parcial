@@ -59,10 +59,10 @@ export default {
     map.zoomControl.valign = 'bottom';
     map.zoomControl.dy = -20;
 
-    map.zoomControl.minusButton.background.fill = am4core.color("#C7D0FF");
+    map.zoomControl.minusButton.background.fill = am4core.color("ffff");
     map.zoomControl.minusButton.background.fillOpacity = 0.24;
     map.zoomControl.minusButton.background.stroke = null;
-    map.zoomControl.plusButton.background.fill = am4core.color("#C7D0FF");
+    map.zoomControl.plusButton.background.fill = am4core.color("#ffffff");
     map.zoomControl.plusButton.background.fillOpacity = 0.24;
     map.zoomControl.plusButton.background.stroke = null;
     map.zoomControl.plusButton.label.fill = am4core.color("#fff");
@@ -78,12 +78,12 @@ export default {
 
     let polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.tooltipText = "{name}";
-    polygonTemplate.fill = am4core.color("#474D84");
+    polygonTemplate.fill = am4core.color("#a2a1c0");
     polygonTemplate.fillOpacity = 1;
     let hs = polygonTemplate.states.create("hover");
     hs.properties.fillOpacity = 0.5;
 
-    polygonTemplate.stroke = am4core.color("#6979C9");
+    polygonTemplate.stroke = am4core.color("#ffffff");
     polygonTemplate.strokeOpacity = 1;
 
     let citySeries = map.series.push(new am4maps.MapImageSeries());

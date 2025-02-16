@@ -1,9 +1,9 @@
 <template>
   <div class="auth-page">
     <b-container>
-      <Widget class="widget-auth mx-auto" title="<h3 class='mt-0'>Create an account</h3>" customHeader>
+      <Widget class="widget-auth mx-auto" title="<h3 class='mt-0'>Creando una cuenta</h3>" customHeader>
         <p class="widget-auth-info">
-          Please fill all fields below
+          Porfavor llene los siguientes campos
         </p>
         <form class="mt" @submit.prevent="register">
           <b-alert class="alert-sm" variant="danger" :show="!!errorMessage">
@@ -48,10 +48,10 @@
               {{this.isFetching ? 'Loading...' : 'Register'}}
             </b-button>
             <p class="widget-auth-info mt-4">
-              Already have the account? Login now!
+              Ya tienes una cuenta? Inicia sesion!
             </p>
-            <router-link class="d-block text-center mb-4" to="login">Enter the Account</router-link>
-            <div class="social-buttons">
+            <router-link class="d-block text-center mb-4" to="login">Entrar a mi cuenta</router-link>
+            <!-- <div class="social-buttons">
               <b-button @click="this.googleLogin" variant="primary" class="social-button">
                 <i class="social-icon social-google"></i>
                 <p class="social-text">GOOGLE</p>
@@ -60,7 +60,7 @@
                 <i class="social-icon social-microsoft"></i>
                 <p class="social-text">MICROSOFT</p>
               </b-button>
-            </div>
+            </div> -->
           </div>
         </form>
       </Widget>

@@ -1,17 +1,17 @@
 <template>
     <div :class="{ 'theme-helper': true, 'theme-helper-opened': helperOpened }">
-        <div class="theme-helper-toggler" @click="toggleHelper(!helperOpened)" id="v-step-3">
+        <!-- <div class="theme-helper-toggler" @click="toggleHelper(!helperOpened)" id="v-step-3">
             <div class="theme-helper-spinner bg-primary text-white">
                 <i class="la la-cog"></i>
                 <i class="la la-cog fs-smaller"></i>
             </div>
-        </div>
-        <section class="widget theme-helper-content">
+        </div> -->
+        <!-- <section class="widget theme-helper-content">
             <div class="widget-body mt-3">
-                <h3 class="mb-3">Theme</h3>
+                <h3 class="mb-3">Tema</h3>
                 <div class="theme-settings">
 
-                    <h5 id="v-step-7">Theme Color</h5>
+                    <h5 id="v-step-7">Colores de tema</h5>
                     <colorpicker
                         :colors="appConfig.themeColors"
                         :activeColor="sidebarColorName"
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
     </div>
 </template>
 

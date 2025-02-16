@@ -9,7 +9,7 @@
   align-items: center;
   font-weight: $font-weight-normal;
   border-radius: 0.2rem;
-  color: $text-muted;
+  color: $secondary;
   background: transparent;
 
   &:hover,
@@ -32,6 +32,6 @@
 
 .buttonActive {
   background-color: $widget-bg;
-  color: $text-color;
+  color: $secondary;
   font-weight: 600;
 }

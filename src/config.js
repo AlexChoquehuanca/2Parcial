@@ -27,7 +27,7 @@ const app = {
     ['sea', "#4A4657"],
     ['sky', "#3A3847"],
     ['rain', "#3846AA"],
-    ['middle', "#3390C3"],
+    ['middle', "#edf8ff"],
 
     // ['default','#002B49'],
     // ['white', '#FFFFFF'],
@@ -54,7 +54,7 @@ export default {
   remote: "https://sing-generator-node.herokuapp.com",
   isBackend: process.env.VUE_APP_BACKEND,
   auth: {
-    email: 'admin@flatlogic.com',
-    password: 'password'
+    email: '4dm1n@pruebas.com',
+    password: '4dm1nPrue3ba'
   }
 };

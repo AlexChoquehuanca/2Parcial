@@ -9,7 +9,7 @@
   justify-content: flex-start;
   font-size: 1rem;
 
-  .nav-link > i {
+  .nav-link>i {
     font-size: 20px;
   }
 
@@ -42,6 +42,7 @@
 }
 
 .input-group {
+
   .input-group-append,
   .input-group-prepend {
     .btn {
@@ -111,7 +112,7 @@ legend {
 .badge {
   color: $header-color;
 
-  .list-group-item > & {
+  .list-group-item>& {
     margin-top: 2px;
   }
 }
@@ -129,12 +130,12 @@ legend {
   margin-left: -$table-cell-padding;
   margin-right: -$table-cell-padding;
 
-  > thead > tr > th,
-  > thead > tr > td,
-  > tbody > tr > th,
-  > tbody > tr > td,
-  > tfoot > tr > th,
-  > tfoot > tr > td {
+  >thead>tr>th,
+  >thead>tr>td,
+  >tbody>tr>th,
+  >tbody>tr>td,
+  >tfoot>tr>th,
+  >tfoot>tr>td {
     border-top: 0;
   }
 }
@@ -142,12 +143,12 @@ legend {
 .table-sm {
   font-size: $font-size-sm;
 
-  > thead > tr > th,
-  > thead > tr > td,
-  > tbody > tr > th,
-  > tbody > tr > td,
-  > tfoot > tr > th,
-  > tfoot > tr > td {
+  >thead>tr>th,
+  >thead>tr>td,
+  >tbody>tr>th,
+  >tbody>tr>td,
+  >tfoot>tr>th,
+  >tfoot>tr>td {
     padding: 6px;
   }
 
@@ -157,7 +158,7 @@ legend {
   }
 }
 
-.table > :not(:first-child) {
+.table> :not(:first-child) {
   border-top: none;
 }
 
@@ -179,11 +180,12 @@ small {
 }
 
 .btn {
+
   &,
   &:hover,
   &.disabled,
   &:disabled {
-    color: $header-color;
+    color: $white;
   }
 }
 
@@ -271,6 +273,10 @@ small {
   }
 }
 
+.progress {
+  background: rgba($color: #565454, $alpha: 0.5);
+}
+
 .caret {
   display: inline-block;
   width: 0;
@@ -299,7 +305,7 @@ small {
     border: 0;
     font-weight: $font-weight-thin;
     text-shadow: none;
-    color: $text-color;
+    color: rgba($white, 0.1);
     outline: none;
     padding: 0;
     position: static;
@@ -364,22 +370,23 @@ small {
   @include border-radius($widget-border-radius);
 }
 
-.container-fluid .jumbotron, .container .jumbotron {
+.container-fluid .jumbotron,
+.container .jumbotron {
   border-radius: 6px;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-@media screen and (min-width: 768px)
-{
-  .jumbotron, .jumbotron {
+@media screen and (min-width: 768px) {
+
+  .jumbotron,
+  .jumbotron {
     padding-left: 60px;
     padding-right: 60px;
   }
 }
 
-@media screen and (min-width: 768px)
-{
+@media screen and (min-width: 768px) {
   .jumbotron {
     padding-bottom: 48px;
     padding-top: 48px;
@@ -404,14 +411,14 @@ small {
     color: inherit;
   }
 
-  > .active {
+  >.active {
     font-weight: $font-weight-semi-bold;
   }
 
   padding: 0;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item+.breadcrumb-item::before {
   content: '>';
   color: $text-color;
 }
@@ -500,7 +507,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  color: $header-color;
+  color: $dark !important;
 
   small,
   .small {
@@ -530,10 +537,12 @@ h6,
 // Modals
 // -------------------------------------------------
 .modal {
+
   .modal-footer,
   .modal-header {
     border-width: $input-border-width;
   }
+
   button.close {
     z-index: 2;
     background-color: transparent;
@@ -555,16 +564,16 @@ h6,
 // --------------------------------------------------
 
 .nav-tabs {
-  &.nav-item + .nav-item {
+  &.nav-item+.nav-item {
     margin-left: 0;
   }
 
   border-bottom: none;
 
-  > .nav-item {
+  >.nav-item {
     margin-bottom: 0;
 
-    > .nav-link {
+    >.nav-link {
       padding: 12px 18px;
       border: none;
       color: $text-muted;
@@ -582,6 +591,7 @@ h6,
     }
 
     .nav-link.open {
+
       &,
       &:hover,
       &:focus {
@@ -591,6 +601,7 @@ h6,
     }
 
     .nav-link.active {
+
       &,
       &:hover,
       &:focus {
@@ -628,7 +639,7 @@ h6,
   z-index: 1;
   background-color: $widget-bg;
 
-  > .tab-pane {
+  >.tab-pane {
     padding: $spacer * 2;
   }
 }
@@ -656,10 +667,14 @@ pre {
   background-color: $pre-bg;
   border: 1px solid $pre-border;
   border-radius: $border-radius;
-  white-space: pre-line; /* css-3 */
-  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-  white-space: -pre-wrap; /* Opera 4-6 */
-  white-space: -o-pre-wrap; /* Opera 7 */
+  white-space: pre-line;
+  /* css-3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
 
   // Account for some code outputs that place code tags in pre tags
   code {
@@ -716,7 +731,7 @@ pre {
     color: $text-color !important;
   }
 
-  li > a {
+  li>a {
     color: $text-color !important;
   }
 
@@ -753,7 +768,7 @@ pre {
 }
 
 ///// Vue Form Wizard //////
-.vue-form-wizard .wizard-nav-pills > li > a {
+.vue-form-wizard .wizard-nav-pills>li>a {
   position: static !important;
 }
 
@@ -764,9 +779,10 @@ pre {
 
   .input-tag {
     border-radius: $border-radius;
-    background-color: $purple;
-    color: $text-color;
-    border-color: darken($purple, 10%);
+    color: white !important;
+    background-color: rgb(230, 168, 54) !important;
+    border-color: orange !important;
+
 
     .remove:before {
       content: ' ×' !important;
@@ -844,10 +860,8 @@ $slider-handle-size: 26px;
     background: $default;
     border: 0 solid transparent;
 
-    @include box-shadow(
-      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      0 1px 3px rgba(0, 0, 0, 5)
-    );
+    @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 1px 3px rgba(0, 0, 0, 5));
 
     &:focus {
       outline: 0;
@@ -890,8 +904,7 @@ $slider-handle-size: 26px;
       margin-top: -$slider-handle-size * 3/8;
 
       &.triangle {
-        border-width: 0 $slider-line-height/2 $slider-line-height/2
-          $slider-line-height/2;
+        border-width: 0 $slider-line-height/2 $slider-line-height/2 $slider-line-height/2;
         width: 0;
         height: 0;
         border-bottom-color: #0480be;
@@ -924,8 +937,7 @@ $slider-handle-size: 26px;
       margin-top: -$slider-handle-size/2;
 
       &.triangle {
-        border-width: $slider-line-height/2 0 $slider-line-height/2
-          $slider-line-height/2;
+        border-width: $slider-line-height/2 0 $slider-line-height/2 $slider-line-height/2;
         width: 1px;
         height: 1px;
         border-left-color: #0480be;
@@ -1111,7 +1123,7 @@ a.ck.ck-button.ck-on {
   }
 }
 
-.ck.ck-editor__main > .ck-editor__editable {
+.ck.ck-editor__main>.ck-editor__editable {
   background: $input-bg !important;
   border-width: $input-border-width !important;
 }
@@ -1124,6 +1136,7 @@ a.ck.ck-button.ck-on {
 .apexcharts-menu {
   background: $dark;
   border: none;
+
   .apexcharts-menu-item:hover {
     background: rgba(255, 255, 255, 0.1);
   }
@@ -1138,4 +1151,14 @@ a.ck.ck-button.ck-on {
   label {
     margin-bottom: 0;
   }
+}
+
+
+//partes editadas porsia
+.bg-dark-main {
+  background-color: $gray-400 !important;
+}
+
+.btn.btn-transparent.button {
+  color: $dark !important;
 }
