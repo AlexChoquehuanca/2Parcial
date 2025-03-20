@@ -204,8 +204,8 @@ export default new Router({
       name: 'Layout',
       component: Layout,
       beforeEnter: (to, from, next) => {
-        let token = localStorage.getItem('token');
-        isAuthenticated(token) ? next() : next({path: '/login'});
+        let user = JSON.parse(localStorage.getItem('user')); // Convertir a objeto
+        user ? next() : next({ path: '/login' });
       },
       children: [
         // main pages

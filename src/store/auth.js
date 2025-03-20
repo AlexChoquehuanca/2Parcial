@@ -1,83 +1,66 @@
 import config from "../config";
 import axios from "axios";
-import jwt from "jsonwebtoken";
 import router from '../Routes';
 
 export default {
     namespaced: true,
     state: {
         isFetching: false,
-        errorMessage: ''
+        errorMessage: '',
+        user: JSON.parse(localStorage.getItem('user')) || null,
     },
     mutations: {
-        LOGIN_FAILURE(state, payload) {
-            state.isFetching = false;
-            state.errorMessage = payload;
-        },
-        LOGIN_SUCCESS(state) {
-            state.isFetching = false;
-            state.errorMessage = '';
-        },
         LOGIN_REQUEST(state) {
             state.isFetching = true;
+            state.errorMessage = '';
         },
-    },
-    actions: {
-        loginUser({dispatch}, creds) {
-          // We check if app runs with backend mode
-          if (!config.isBackend) {
-            dispatch('receiveToken', 'token');
-          }
-          else {
-            dispatch('requestLogin');
-            if (creds.social) {
-              window.location.href = config.baseURLApi + "/auth/signin/" + creds.social + '?app=' + config.redirectUrl;
-            } else if (creds.email.length > 0 && creds.password.length > 0) {
-              axios.post("/auth/signin/local", creds).then(res => {
-                const token = res.data;
-                dispatch('receiveToken', token);
-              }).catch(err => {
-                dispatch('loginError', err.response.data);
-              })
-
-            } else {
-              dispatch('loginError', 'Something was wrong. Try again');
-            }
-          }
+        LOGIN_SUCCESS(state, user) {
+            state.isFetching = false;
+            state.errorMessage = '';
+            state.user = user;
         },
-        receiveToken({dispatch}, token) {
-          let user = {};
-          // We check if app runs with backend mode
-          if (config.isBackend) {
-            user = jwt.decode(token).user;
-            delete user.id;
-          } else {
-            user = {
-              email: config.auth.email
-            }
-          }
-
-          localStorage.setItem('token', token);
-          localStorage.setItem('user', JSON.stringify(user));
-          axios.defaults.headers.common['Authorization'] = "Bearer " + token;
-          dispatch('receiveLogin');
+        LOGIN_FAILURE(state, errorMessage) {
+            state.isFetching = false;
+            state.errorMessage = errorMessage;
         },
-        logoutUser() {
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
-            document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-            axios.defaults.headers.common['Authorization'] = "";
-            router.push('/login');
-        },
-        loginError({commit}, payload) {
-            commit('LOGIN_FAILURE', payload);
-        },
-        receiveLogin({commit}) {
-            commit('LOGIN_SUCCESS');
-            router.push('/app/main/visits');
-        },
-        requestLogin({commit}) {
-            commit('LOGIN_REQUEST');
+        LOGOUT(state) {
+            state.user = null;
         }
     },
+    actions: {
+        async loginUser({ commit }, creds) {
+            commit('LOGIN_REQUEST');
+            try {
+                const res = await axios.post(`${config.baseURLApi}/login.php`, creds);
+                
+                if (res.data.success) { 
+                    let user = {
+                        email: creds.email, 
+                        nombre: res.data.nombre, 
+                        rol: res.data.rol 
+                    };
+                    localStorage.setItem('user', JSON.stringify(user)); 
+                    commit('LOGIN_SUCCESS', user);
+                    router.push('/app/main/visits');
+                } else {
+                    commit('LOGIN_FAILURE', 'Credenciales incorrectas');
+                }
+            } catch (err) {
+                if (err.response && err.response.data && err.response.data.error) {
+                    commit('LOGIN_FAILURE', err.response.data.error);
+                } else {
+                    commit('LOGIN_FAILURE', 'Error en el servidor');
+                }
+            }
+        },
+        logoutUser({ commit }) {
+            localStorage.removeItem('user');
+            commit('LOGOUT');
+            router.push('/login');
+        }
+    },
+    getters: {
+        isAuthenticated: state => !!state.user,
+        currentUser: state => state.user,
+    }
 };

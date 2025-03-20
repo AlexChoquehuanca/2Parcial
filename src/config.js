@@ -1,6 +1,6 @@
-const hostApi = process.env.NODE_ENV === "development" ? "http://localhost" : "https://sing-generator-node.herokuapp.com";
-const portApi = process.env.NODE_ENV === "development" ? 8080 : "";
-const baseURLApi = `${hostApi}${portApi ? `:${portApi}` : ``}/api`;
+const hostApi = "http://localhost"; // Siempre apunta a localhost
+const portApi = ""; // El puerto 80 es el predeterminado para HTTP, por lo que lo dejamos vacío
+const baseURLApi = `${hostApi}${portApi ? `:${portApi}` : ``}/api`; // Apunta a la carpeta 'api' de tu backend PHP
 const redirectUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000/light-blue-vue" : "https://demo.flatlogic.com/light-blue-vue/";
 
 const colors = {
@@ -18,8 +18,6 @@ const colors = {
   gridLineColor: '#040620'
 };
 
-
-
 const app = {
   themeColors: [
     ['dark', "#333964"],
@@ -28,16 +26,6 @@ const app = {
     ['sky', "#3A3847"],
     ['rain', "#3846AA"],
     ['middle', "#edf8ff"],
-
-    // ['default','#002B49'],
-    // ['white', '#FFFFFF'],
-    // ['first','#004472'],
-    // ['second','#e9ebef'],
-    // ['third','#d1e7f5'],
-    // ['fourth','#ccdde9'],
-    // ['fifth','#d6dfe6'],
-    // ['sixth','#13191d'],
-    // ['seventh','#20ae8c'],
   ],
 }
 
@@ -51,8 +39,8 @@ export default {
   portApi,
   baseURLApi,
   redirectUrl,
-  remote: "https://sing-generator-node.herokuapp.com",
-  isBackend: process.env.VUE_APP_BACKEND,
+  remote: "http://localhost/api", // Ajustado para reflejar baseURLApi
+  isBackend: true,
   auth: {
     email: '4dm1n@pruebas.com',
     password: '4dm1nPrue3ba'
