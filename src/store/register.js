@@ -24,20 +24,29 @@ export default {
     actions: {
         async registerUser({ dispatch }, payload) {
             console.log("Datos enviados:", payload.creds);
+
             if (!config.isBackend) {
-                payload.$toasted.success("Te has registrado exitosamente");
-                router.push('/login.php');
+                router.push('/login');
             } else {
                 dispatch('requestRegister');
                 const creds = payload.creds;
+
                 try {
-                    await axios.post(`${config.baseURLApi}/register.php`, creds);
-                    dispatch('receiveRegister');
-                    payload.$toasted.success("Te has registrado exitosamente");
-                    router.push('/login.php');
+                    const response = await axios.post(`${config.baseURLApi}/register.php`, creds, {
+                        headers: { "Content-Type": "application/json" }
+                    });
+
+                    console.log("Respuesta del servidor:", response.data);
+
+                    // Verifica que la respuesta tenga 'success' antes de continuar
+                    if (response.data && response.data.message === 'Usuario registrado con éxito') {
+                        dispatch('receiveRegister');
+                        router.push('login');
+                    } else {
+                        throw new Error(response.data.error || "Error inesperado en el servidor");
+                    }
                 } catch (err) {
-                    console.error("Error del backend:", err.response.data);
-                    dispatch('registerError', err.response.data.error);
+                    console.error("Error del backend:", err.response && err.response.data ? err.response.data : err.message);
                 }
             }
         },

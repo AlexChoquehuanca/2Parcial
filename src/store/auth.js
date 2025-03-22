@@ -29,17 +29,18 @@ export default {
     },
     actions: {
         async loginUser({ commit }, creds) {
+            console.log('Datos del login:', creds);
             commit('LOGIN_REQUEST');
             try {
                 const res = await axios.post(`${config.baseURLApi}/login.php`, creds);
-                
-                if (res.data.success) { 
+                console.log('Respuesta del servidor:', res);
+                console.log('Respuesta del servidor:', res.data);
+                if (res.data.success) {
                     let user = {
-                        email: creds.email, 
-                        nombre: res.data.nombre, 
-                        rol: res.data.rol 
+                        email: creds.email,
+                        nombre: res.data.nombre,
                     };
-                    localStorage.setItem('user', JSON.stringify(user)); 
+                    localStorage.setItem('user', JSON.stringify(user));
                     commit('LOGIN_SUCCESS', user);
                     router.push('/app/main/visits');
                 } else {

@@ -41,8 +41,4 @@ export default {
   redirectUrl,
   remote: "http://localhost/api", // Ajustado para reflejar baseURLApi
   isBackend: true,
-  auth: {
-    email: '4dm1n@pruebas.com',
-    password: '4dm1nPrue3ba'
-  }
 };
